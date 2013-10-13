@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using System.Text;
-using SystemDotDb;
 using SystemDotDb.Infrastructure;
 using SystemDotDb.Infrastructure.Files;
 using Microsoft.Isam.Esent.Interop;
 
-namespace SystemDot.Esent
+namespace SystemDotDb.Esent
 {
     public class EsentDocumentStore : Disposable, IDocumentStore
     {

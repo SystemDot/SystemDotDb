@@ -1,4 +1,4 @@
-namespace SystemDot.Esent
+namespace SystemDotDb.Esent
 {
     public static class DocumentStoreTable
     {

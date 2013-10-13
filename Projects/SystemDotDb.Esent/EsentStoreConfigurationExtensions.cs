@@ -1,8 +1,7 @@
-using SystemDotDb;
 using SystemDotDb.Configuration;
 using SystemDotDb.Infrastructure.Ioc;
 
-namespace SystemDot.Esent
+namespace SystemDotDb.Esent
 {
     public static class EsentStoreConfigurationExtensions
     {

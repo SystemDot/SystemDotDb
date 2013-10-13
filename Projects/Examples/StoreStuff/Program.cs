@@ -1,7 +1,7 @@
 ﻿using System;
-using SystemDot.Esent;
 using SystemDotDb;
 using SystemDotDb.Configuration;
+using SystemDotDb.Esent;
 
 namespace StoreStuff
 {
@@ -15,14 +15,22 @@ namespace StoreStuff
 
             var id = new Guid("{3F17F2AB-C956-4BED-AE9F-C7092050FE56}");
 
-            var bigObject = new BigObject();
-
             for (int i = 0; i < 1002; i++)
-                bigObject.AddThing(i, "Hello", DateTime.Now, "Whatever", "OtherThing", i);
+            {
+                var bigObject = new BigObject();
 
-            Db.Store(id, bigObject);
+                for (int k = 0; k < 1002; k++)
+                    bigObject.AddThing(k, "Hello", DateTime.Now, "Whatever", "OtherThing", i);
 
-            var biggy = Db.GetById<BigObject>(id);
+                Console.WriteLine("Storing object {0}", i); 
+                Db.Store(id, bigObject);
+                Console.WriteLine("Stored object {0}", i);
+            }
+
+            Console.WriteLine("Getting last stored object"); 
+            var lastOne = Db.GetById<BigObject>(id);
+            Console.WriteLine("Got last stored object");
+            Console.ReadLine();
         }
     }
 }

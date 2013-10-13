@@ -7,8 +7,8 @@
     <ProjectGuid>{C7DBF177-FCDB-4530-A6CA-3B1EFBAD63EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SystemDot.Esent</RootNamespace>
-    <AssemblyName>SystemDot.Esent</AssemblyName>
+    <RootNamespace>SystemDotDb.Esent</RootNamespace>
+    <AssemblyName>SystemDotDb.Esent</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>
