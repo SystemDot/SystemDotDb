@@ -4,7 +4,7 @@ using SystemDot.Core;
 using SystemDot.Files;
 using Microsoft.Isam.Esent.Interop;
 
-namespace SystemDotDb.Esent
+namespace SystemDot.Db.Esent
 {
     public class EsentDocumentStore : Disposable, IDocumentStore
     {

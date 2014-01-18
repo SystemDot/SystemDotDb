@@ -1,7 +1,9 @@
 ﻿using System;
-using SystemDotDb;
-using SystemDotDb.Configuration;
-using SystemDotDb.Esent;
+using SystemDot.Configuration;
+using SystemDot.Db.Esent;
+using SystemDot.Ioc;
+using SystemDot.Db;
+using SystemDot.Db.Configuration;
 
 namespace StoreStuff
 {
@@ -9,8 +11,9 @@ namespace StoreStuff
     {
         static void Main(string[] args)
         {
-            Configure.DocumentDb()
-                .UsingEsentPersistence()
+            Configure.SystemDot()
+                .ResolveReferencesWith(new IocContainer())
+                .UseDocumentDb().PersistToEsent()
                 .Initialise();
 
             var id = new Guid("{3F17F2AB-C956-4BED-AE9F-C7092050FE56}");

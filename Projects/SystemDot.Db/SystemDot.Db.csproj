@@ -2,70 +2,63 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5572F9C1-0D3F-4187-A546-284A15033B36}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{A2D9BE2D-51A4-47CC-A40F-E92148C98E8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StoreStuff</RootNamespace>
-    <AssemblyName>StoreStuff</AssemblyName>
+    <RootNamespace>SystemDot.Db</RootNamespace>
+    <AssemblyName>SystemDot.Db</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile7</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\Build\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Build\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Compile Include="Configuration\BuilderConfigurationExtensions.cs" />
+    <Compile Include="Configuration\DocumentDbBuilderConfiguration.cs" />
+    <Compile Include="Configuration\IocContainerExtensions.cs" />
+    <Compile Include="Db.cs" />
+    <Compile Include="DocumentDb.cs" />
+    <Compile Include="IDocumentStore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="SystemDot.Configuration">
-      <HintPath>..\..\..\Dependencies\SystemDot\SystemDot.Configuration.dll</HintPath>
+      <HintPath>..\..\Dependencies\SystemDot\SystemDot.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemDot.Core">
+      <HintPath>..\..\Dependencies\SystemDot\SystemDot.Core.dll</HintPath>
     </Reference>
     <Reference Include="SystemDot.Ioc">
-      <HintPath>..\..\..\Dependencies\SystemDot\SystemDot.Ioc.dll</HintPath>
+      <HintPath>..\..\Dependencies\SystemDot\SystemDot.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemDot.Serialisation">
+      <HintPath>..\..\Dependencies\SystemDot\SystemDot.Serialisation.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemDot.Serialisation.Json">
+      <HintPath>..\..\Dependencies\SystemDot\SystemDot.Serialisation.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BigObject.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Thing.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\SystemDot.Db.Esent\SystemDot.Db.Esent.csproj">
-      <Project>{3DE87A83-5D14-4A0E-9F83-61D2FC58211B}</Project>
-      <Name>SystemDot.Db.Esent</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SystemDot.Db\SystemDot.Db.csproj">
-      <Project>{a2d9be2d-51a4-47cc-a40f-e92148c98e8f}</Project>
-      <Name>SystemDot.Db</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
