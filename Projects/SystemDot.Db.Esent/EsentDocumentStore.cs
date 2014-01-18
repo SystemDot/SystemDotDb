@@ -74,7 +74,7 @@ namespace SystemDot.Db.Esent
             }
         }
 
-        void StoreDocumentBody(Session session, string changeRootId, byte[] body)
+        void StoreDocumentBody(Session session, string id, byte[] body)
         {
             JET_DBID dbId = Esent.OpenDatabase(session, GetDatabaseFileName());
 
@@ -84,7 +84,7 @@ namespace SystemDot.Db.Esent
 
                 using (var transaction = new Transaction(session))
                 {
-                    StoreDocumentBody(session, table, columns, changeRootId, body);
+                    StoreDocumentBody(session, table, columns, id, body);
                     transaction.Commit(CommitTransactionGrbit.None);
                 }
             }

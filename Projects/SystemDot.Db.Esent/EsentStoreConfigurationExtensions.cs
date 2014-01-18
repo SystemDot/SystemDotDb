@@ -1,6 +1,7 @@
 using SystemDot.Configuration;
 using SystemDot.Db.Configuration;
 using SystemDot.Files.Windows.Configuration;
+using SystemDot.Serialisation.Json.Configuration;
 
 namespace SystemDot.Db.Esent
 {
@@ -11,6 +12,10 @@ namespace SystemDot.Db.Esent
             configuration
                 .GetBuilderConfiguration()
                 .RegisterBuildAction(c => c.RegisterFileSystem());
+
+            configuration
+                .GetBuilderConfiguration()
+                .RegisterBuildAction(c => c.RegisterJsonSerialisation());
             
             configuration
                 .GetBuilderConfiguration()
